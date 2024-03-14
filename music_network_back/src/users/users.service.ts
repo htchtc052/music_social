@@ -1,11 +1,17 @@
 import { Injectable } from '@nestjs/common';
 import { RegisterUserDto } from './dto/register-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import * as bcrypt from 'bcrypt';
+import { PrismaService } from 'nestjs-prisma';
 
 @Injectable()
-export class AuthService {
+export class UsersService {
+  constructor(private prisma: PrismaService) {}
+
   create(registerUserDto: RegisterUserDto) {
-    return 'This action adds a new user';
+    registerUserDto.password = bcrypt.hashSync(registerUserDto.password, 10);
+
+    return this.prisma.user.create({ data: registerUserDto });
   }
 
   findAll() {
