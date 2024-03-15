@@ -1,17 +1,37 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { RegisterUserDto } from './dto/register-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import * as bcrypt from 'bcrypt';
 import { PrismaService } from 'nestjs-prisma';
+import { Prisma, User } from '@prisma/client';
+import { PrismaErrors } from '../../prisma/prismaErrors';
 
 @Injectable()
 export class UsersService {
   constructor(private prisma: PrismaService) {}
 
-  create(registerUserDto: RegisterUserDto) {
-    registerUserDto.password = bcrypt.hashSync(registerUserDto.password, 10);
-
-    return this.prisma.user.create({ data: registerUserDto });
+  async create(registerUserDto: RegisterUserDto): Promise<User> {
+    try {
+      registerUserDto.password = bcrypt.hashSync(registerUserDto.password, 10);
+      const user: User = await this.prisma.user.create({
+        data: registerUserDto,
+      });
+      return user;
+    } catch (error) {
+      if (
+        error instanceof Prisma.PrismaClientKnownRequestError &&
+        error?.code === PrismaErrors.UniqueConstraintFailed
+      ) {
+        throw new HttpException(
+          'User with that email already exists',
+          HttpStatus.BAD_REQUEST,
+        );
+      }
+      throw new HttpException(
+        'Something went wrong',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
   }
 
   findAll() {
