@@ -38,8 +38,8 @@ export class UsersService {
     return `This action returns all users`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
+  findById(id: number): Promise<User> {
+    return this.prisma.user.findUnique({ where: { id } });
   }
 
   findByEmail(email: string): Promise<User> {
