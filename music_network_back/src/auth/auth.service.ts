@@ -33,8 +33,8 @@ export class AuthService {
     const user: User = await this.usersService.findByEmail(loginDto.email);
 
     const passwordIsValid = await this.validatePassword(
-      user.password,
       loginDto.password,
+      user?.password,
     );
 
     if (!user || !passwordIsValid) {
@@ -69,6 +69,7 @@ export class AuthService {
     plainTextPassword: string,
     hashedPassword: string,
   ) {
+    if (!plainTextPassword || !hashedPassword) return false;
     return await bcrypt.compare(plainTextPassword, hashedPassword);
   }
 }
