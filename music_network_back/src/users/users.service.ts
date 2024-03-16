@@ -1,5 +1,5 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { RegisterUserDto } from './dto/register-user.dto';
+import { RegisterDto } from '../auth/dto/register.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import * as bcrypt from 'bcrypt';
 import { PrismaService } from 'nestjs-prisma';
@@ -10,7 +10,7 @@ import { PrismaErrors } from '../../prisma/prismaErrors';
 export class UsersService {
   constructor(private prisma: PrismaService) {}
 
-  async create(registerUserDto: RegisterUserDto): Promise<User> {
+  async create(registerUserDto: RegisterDto): Promise<User> {
     try {
       registerUserDto.password = bcrypt.hashSync(registerUserDto.password, 10);
       const user: User = await this.prisma.user.create({
@@ -40,6 +40,15 @@ export class UsersService {
 
   findOne(id: number) {
     return `This action returns a #${id} user`;
+  }
+
+  findByEmail(email: string): Promise<User> {
+    return this.prisma.user.findUnique({
+      where: {
+        email,
+        deletedAt: null,
+      },
+    });
   }
 
   update(id: number, updateUserDto: UpdateUserDto) {
