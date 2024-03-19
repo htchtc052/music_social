@@ -20,18 +20,19 @@ enum Genders {
 }
 
 model User {
-  id        Int       @id @default(autoincrement())
+  id        Int      @id @default(autoincrement())
   username  String
-  email     String    @unique
+  email     String
   password  String
   firstName String?
   lastName  String?
-  gender    Genders?  @default(NOT_SPECIFIED)
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  deletedAt DateTime?
+  gender    Genders? @default(NOT_SPECIFIED)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  isDeleted Boolean  @default(false)
   Token     Token[]
 
+  @@unique([email, isDeleted])
   @@map(name: "users")
 }
 

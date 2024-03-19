@@ -5,6 +5,7 @@ import * as bcrypt from 'bcrypt';
 import { PrismaService } from 'nestjs-prisma';
 import { Prisma, User } from '@prisma/client';
 import { PrismaErrors } from '../../prisma/prismaErrors';
+import { UserResponse } from './dto/response-user.dto';
 
 @Injectable()
 export class UsersService {
@@ -33,23 +34,37 @@ export class UsersService {
   }
 
   findById(id: number): Promise<User> {
-    return this.prisma.user.findUnique({ where: { id } });
+    return this.prisma.user.findUnique({
+      where: { id, isDeleted: false },
+    });
   }
 
   findByEmail(email: string): Promise<User> {
     return this.prisma.user.findUnique({
       where: {
-        email,
-        deletedAt: null,
+        email_isDeleted: { email, isDeleted: false },
       },
     });
   }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
+  async update(userId: number, updateUserDto: UpdateUserDto) {
+    const updatedUser: User = await this.prisma.user.update({
+      where: {
+        id: userId,
+      },
+      data: updateUserDto,
+    });
+
+    return new UserResponse(updatedUser);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} user`;
+  async remove(userId: number): Promise<User> {
+    const removedUser: User = await this.prisma.user.update({
+      where: {
+        id: userId,
+      },
+      data: { isDeleted: true },
+    });
+    return removedUser;
   }
 }
