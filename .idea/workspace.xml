@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7a5280e4-47b5-4977-9272-99d0e3a2f2c5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/music_network_back/src/auth/guards/refresh-token.guard.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/music_network_back/src/auth/strategies/refresh-token.strategy.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music_network_back/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/prisma/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music_network_back/src/auth/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/src/auth/auth.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music_network_back/src/auth/auth.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/src/auth/auth.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music_network_back/src/auth/auth.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/src/auth/auth.service.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music_network_back/src/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/src/auth/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music_network_back/src/users/dto/response-user.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/src/users/dto/response-user.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music_network_back/src/users/users.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/src/users/users.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music_network_back/test/users.e2e.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/test/auth.e2e-spec.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2dm46d59OI894RfC6vhsXZUHrz7" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;code.cleanup.on.save&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore_missing_gitignore&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/alekslog/www/music_social/music_network_back/node_modules/prettier&quot;,
+    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/alekslog/www/music_social/music_network_back/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7a5280e4-47b5-4977-9272-99d0e3a2f2c5" name="Changes" comment="" />
+      <created>1710599745121</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1710599745121</updated>
+      <workItem from="1710599746131" duration="4573000" />
+      <workItem from="1710605876207" duration="2308000" />
+      <workItem from="1710614723669" duration="17975000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

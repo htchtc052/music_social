@@ -4,7 +4,7 @@ import { createTestingModule } from './createTestingModule';
 import { appSetup } from './app.setup';
 import { AuthResponse } from '../src/auth/dto/response-auth.dto';
 import { RegisterDto } from '../src/auth/dto/register.dto';
-import request from 'supertest';
+import * as request from 'supertest';
 
 describe('User related routes', () => {
   let app: INestApplication;
