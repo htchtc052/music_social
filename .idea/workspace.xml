@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a5280e4-47b5-4977-9272-99d0e3a2f2c5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/music_network_back/src/auth/guards/refresh-token.guard.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/music_network_back/src/auth/strategies/refresh-token.strategy.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/music_network_back/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/prisma/schema.prisma" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/music_network_back/src/auth/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/src/auth/auth.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/music_network_back/src/auth/auth.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/src/auth/auth.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/music_network_back/src/auth/auth.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/src/auth/auth.service.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/music_network_back/src/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/src/auth/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/music_network_back/src/users/dto/response-user.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/src/users/dto/response-user.dto.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/music_network_back/src/users/users.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/src/users/users.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/music_network_back/test/users.e2e.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/test/auth.e2e-spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,10 +63,23 @@
       <workItem from="1710599746131" duration="4573000" />
       <workItem from="1710605876207" duration="2308000" />
       <workItem from="1710614723669" duration="17975000" />
+      <workItem from="1710838940938" duration="11210000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/music_network_back/src/users/users.service.ts</url>
+          <line>18</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

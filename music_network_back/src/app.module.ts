@@ -9,6 +9,7 @@ import * as Joi from 'joi';
 import { join } from 'path';
 import { PrismaModule } from 'nestjs-prisma';
 import { ServeStaticModule } from '@nestjs/serve-static';
+import { TrackModule } from './track/track.module';
 
 @Module({
   imports: [
@@ -43,6 +44,7 @@ import { ServeStaticModule } from '@nestjs/serve-static';
       },
       inject: [ConfigService],
     }),
+    TrackModule,
   ],
   controllers: [AppController],
   providers: [AppService],
