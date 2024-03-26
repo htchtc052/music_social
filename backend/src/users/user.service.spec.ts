@@ -1,4 +1,4 @@
-import { UsersService } from './users.service';
+import { UserService } from './user.service';
 import { Test, TestingModule } from '@nestjs/testing';
 import { PrismaService } from 'nestjs-prisma';
 import { User } from '@prisma/client';
@@ -7,8 +7,8 @@ import { RegisterDto } from '../auth/dto/register.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { UserResponse } from './dto/user-response.dto';
 
-describe('UsersService', () => {
-  let usersService: UsersService;
+describe('UserService', () => {
+  let userService: UserService;
 
   const prisma = {
     user: {
@@ -20,7 +20,7 @@ describe('UsersService', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
-        UsersService,
+        UserService,
         {
           provide: PrismaService,
           useValue: prisma,
@@ -28,11 +28,11 @@ describe('UsersService', () => {
       ],
     }).compile();
 
-    usersService = module.get<UsersService>(UsersService);
+    userService = module.get<UserService>(UserService);
   });
 
   it('should be defined', () => {
-    expect(usersService).toBeDefined();
+    expect(userService).toBeDefined();
   });
 
   describe('users routes', () => {
@@ -48,7 +48,7 @@ describe('UsersService', () => {
 
       jest.spyOn(prisma.user, 'create').mockResolvedValue(user);
 
-      const createdUser: User = await usersService.create({
+      const createdUser: User = await userService.create({
         username: user.username,
         email: 'free@email.com',
         password: user.password,
@@ -69,7 +69,7 @@ describe('UsersService', () => {
 
       jest.spyOn(prisma.user, 'update').mockResolvedValue(updatedUserMock);
 
-      const updatedUserResponse: UserResponse = await usersService.update(
+      const updatedUserResponse: UserResponse = await userService.update(
         user.id,
         updateUserDto,
       );
@@ -82,7 +82,7 @@ describe('UsersService', () => {
 
       jest.spyOn(prisma.user, 'update').mockResolvedValue(deletedUserMock);
 
-      const deletedUserResponse = await usersService.remove(user.id);
+      const deletedUserResponse = await userService.remove(user.id);
 
       expect(deletedUserResponse).toEqual(deletedUserMock);
     });

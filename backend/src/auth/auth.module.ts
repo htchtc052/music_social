@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AuthController } from './auth.controller';
-import { UsersModule } from '../users/users.module';
-import { UsersService } from '../users/users.service';
+import { UserModule } from '../users/user.module';
+import { UserService } from '../users/user.service';
 import { AuthService } from './auth.service';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
@@ -11,7 +11,7 @@ import { RefreshTokenStrategy } from './strategies/refresh-token.strategy';
 
 @Module({
   imports: [
-    UsersModule,
+    UserModule,
     PassportModule,
     JwtModule.registerAsync({
       imports: [ConfigModule],
@@ -23,7 +23,7 @@ import { RefreshTokenStrategy } from './strategies/refresh-token.strategy';
   ],
   providers: [
     AuthService,
-    UsersService,
+    UserService,
     AccessTokenStrategy,
     RefreshTokenStrategy,
   ],

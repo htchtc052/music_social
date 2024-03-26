@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
-import { UsersModule } from './users/users.module';
+import { UserModule } from './users/user.module';
 import { JwtModule } from '@nestjs/jwt';
 import { join } from 'path';
 import { PrismaModule } from 'nestjs-prisma';
@@ -16,7 +16,7 @@ import { ConfigService } from '@nestjs/config';
   imports: [
     JwtModule.register({ global: true }),
     FilesModule,
-    UsersModule,
+    UserModule,
     AuthModule,
     ConfigModule,
     PrismaModule.forRoot({

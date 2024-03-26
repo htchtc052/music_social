@@ -5,12 +5,10 @@ import {
   HttpStatus,
   Post,
   UseGuards,
-  UseInterceptors,
 } from '@nestjs/common';
 import { RegisterDto } from './dto/register.dto';
 import { AuthService } from './auth.service';
 import { LoginDto } from './dto/login.dto';
-import { SerializerInterceptor } from '../serializer.interceptor';
 import { User } from '@prisma/client';
 import { AuthUser } from './auth-user.decorator';
 import { ApiBearerAuth } from '@nestjs/swagger';
@@ -24,14 +22,12 @@ export class AuthController {
 
   @Post('register')
   @HttpCode(HttpStatus.CREATED)
-  @UseInterceptors(SerializerInterceptor)
   register(@Body() registerDto: RegisterDto): Promise<AuthResponse> {
     return this.authService.register(registerDto);
   }
 
   @Post('login')
   @HttpCode(HttpStatus.OK)
-  @UseInterceptors(SerializerInterceptor)
   login(@Body() loginDto: LoginDto): Promise<AuthResponse> {
     return this.authService.login(loginDto);
   }

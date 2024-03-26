@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7a5280e4-47b5-4977-9272-99d0e3a2f2c5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/music_network_back/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music_network_back/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/src/main.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +72,7 @@
       <workItem from="1710599746131" duration="4573000" />
       <workItem from="1710605876207" duration="2308000" />
       <workItem from="1710614723669" duration="17975000" />
-      <workItem from="1710838940938" duration="50419000" />
+      <workItem from="1710838940938" duration="50691000" />
     </task>
     <servers />
   </component>

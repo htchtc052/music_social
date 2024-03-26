@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AuthService } from './auth.service';
-import { UsersService } from '../users/users.service';
+import { UserService } from '../users/user.service';
 import { PrismaService } from 'nestjs-prisma';
 import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
@@ -11,8 +11,8 @@ import { RegisterDto } from './dto/register.dto';
 describe('AuthService', () => {
   let authService: AuthService;
 
-  const mockUsersService: UsersService = jest.createMockFromModule(
-    '../users/users.service',
+  const mockUsersService: UserService = jest.createMockFromModule(
+    '../users/user.service',
   );
 
   beforeEach(async () => {
@@ -20,7 +20,7 @@ describe('AuthService', () => {
       providers: [
         AuthService,
         {
-          provide: UsersService,
+          provide: UserService,
           useValue: mockUsersService,
         },
         {

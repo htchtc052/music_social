@@ -8,7 +8,7 @@ import { PrismaErrors } from '../../prisma/prismaErrors';
 import { UserResponse } from './dto/user-response.dto';
 
 @Injectable()
-export class UsersService {
+export class UserService {
   constructor(private prisma: PrismaService) {}
 
   async create(registerUserDto: RegisterDto): Promise<User> {

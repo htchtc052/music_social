@@ -1,7 +1,7 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
-import { UsersService } from '../../users/users.service';
+import { UserService } from '../../users/user.service';
 import TokenPayload from '../types/token-payload';
 import { User } from '@prisma/client';
 import { ConfigService } from '@nestjs/config';
@@ -9,7 +9,7 @@ import { ConfigService } from '@nestjs/config';
 @Injectable()
 export class AccessTokenStrategy extends PassportStrategy(Strategy, 'jwt') {
   constructor(
-    private usersService: UsersService,
+    private usersService: UserService,
     private configService: ConfigService,
   ) {
     super({
