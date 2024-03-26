@@ -5,7 +5,7 @@ import * as bcrypt from 'bcrypt';
 import { PrismaService } from 'nestjs-prisma';
 import { Prisma, User } from '@prisma/client';
 import { PrismaErrors } from '../../prisma/prismaErrors';
-import { UserResponse } from './dto/response-user.dto';
+import { UserResponse } from './dto/user-response.dto';
 
 @Injectable()
 export class UsersService {
@@ -58,7 +58,7 @@ export class UsersService {
     return new UserResponse(updatedUser);
   }
 
-  async remove(userId: number): Promise<User> {
+  async remove(userId: number) {
     const removedUser: User = await this.prisma.user.update({
       where: {
         id: userId,

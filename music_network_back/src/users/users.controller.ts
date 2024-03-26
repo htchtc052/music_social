@@ -1,28 +1,27 @@
 import {
   Body,
+  ClassSerializerInterceptor,
   Controller,
   Delete,
   Get,
   HttpCode,
   HttpStatus,
-  Param,
   Patch,
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
-import { SerializerInterceptor } from '../serializer.interceptor';
 import { AccessTokenGuard } from '../auth/guards/access-token.guard';
-import {
-  ApiBearerAuth,
-  ApiOkResponse,
-  ApiUnauthorizedResponse,
-} from '@nestjs/swagger';
+import { ApiBearerAuth } from '@nestjs/swagger';
 import { AuthUser } from '../auth/auth-user.decorator';
 import { User } from '@prisma/client';
-import { UserResponse } from './dto/response-user.dto';
+import { UserResponse } from './dto/user-response.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { SerializerInterceptor } from '../serializer.interceptor';
 
+@UseInterceptors(ClassSerializerInterceptor)
+@UseGuards(AccessTokenGuard)
+@ApiBearerAuth()
 @Controller('users')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
@@ -32,18 +31,17 @@ export class UsersController {
     return this.usersService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.usersService.findById(+id);
+  @Get('/getAuthUser')
+  @HttpCode(HttpStatus.OK)
+  @UseGuards(AccessTokenGuard)
+  @ApiBearerAuth()
+  @UseInterceptors(SerializerInterceptor)
+  async getUser(@AuthUser() user: User): Promise<UserResponse> {
+    return new UserResponse(user);
   }
 
   @Patch()
-  @UseInterceptors(SerializerInterceptor)
-  @UseGuards(AccessTokenGuard)
   @HttpCode(HttpStatus.OK)
-  @ApiOkResponse()
-  @ApiUnauthorizedResponse()
-  @ApiBearerAuth()
   update(
     @AuthUser() user: User,
     @Body() updateUserDto: UpdateUserDto,
@@ -51,11 +49,8 @@ export class UsersController {
     return this.usersService.update(+user.id, updateUserDto);
   }
   @Delete()
-  @UseInterceptors(SerializerInterceptor)
-  @UseGuards(AccessTokenGuard)
   @HttpCode(HttpStatus.OK)
-  @ApiOkResponse()
-  @ApiUnauthorizedResponse()
+  @UseGuards(AccessTokenGuard)
   @ApiBearerAuth()
   async remove(
     @AuthUser()

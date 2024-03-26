@@ -5,7 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a5280e4-47b5-4977-9272-99d0e3a2f2c5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/music_network_back/config.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/music_network_back/src/files.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/music_network_back/src/track/dto/track-file-response.dto.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/music_network_back/src/track/dto/track-response.dto.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/music_network_back/src/track/exception/trackForbiddenException.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/music_network_back/src/track/exception/trackNotFoundException.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/music_network_back/src/track/track-public.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/music_network_back/src/track/tracks-private.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/music_network_back/src/track/tracks.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/music_network_back/src/track/tracks.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/music_network_back/src/users/pipe/user-by-id.pipe.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/music_network_back/src/users/user-profile.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music_network_back/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music_network_back/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/prisma/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music_network_back/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/src/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music_network_back/src/auth/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/src/auth/auth.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music_network_back/src/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/src/auth/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music_network_back/src/auth/dto/response-auth.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/src/auth/dto/response-auth.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music_network_back/src/track/dto/update-track.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/src/track/dto/update-track.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music_network_back/src/track/track.controller.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/music_network_back/src/track/track.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/music_network_back/src/track/track.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/src/track/tracks.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music_network_back/src/track/track.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/music_network_back/src/track/track.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/music_network_back/src/users/dto/response-user.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/src/users/dto/user-response.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music_network_back/src/users/users.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/src/users/users.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music_network_back/src/users/users.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/src/users/users.service.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music_network_back/src/users/users.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/src/users/users.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music_network_back/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,27 +60,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;code.cleanup.on.save&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore_missing_gitignore&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/alekslog/www/music_social/music_network_back/node_modules/prettier&quot;,
-    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/alekslog/www/music_social/music_network_back/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "TypeScript.user-by-id.pipe.ts.executor": "Run",
+    "code.cleanup.on.save": "true",
+    "git-widget-placeholder": "main",
+    "ignore_missing_gitignore": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "/Users/alekslog/www/music_social/music_network_back/node_modules/prettier",
+    "rearrange.code.on.save": "true",
+    "settings.editor.selected.configurable": "actions.on.save",
+    "ts.external.directory.path": "/Users/alekslog/www/music_social/music_network_back/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/music_network_back/src" />
+      <recent name="$PROJECT_DIR$/music_network_back" />
+      <recent name="$PROJECT_DIR$/music_network_back/src/common/pipes" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -63,7 +100,7 @@
       <workItem from="1710599746131" duration="4573000" />
       <workItem from="1710605876207" duration="2308000" />
       <workItem from="1710614723669" duration="17975000" />
-      <workItem from="1710838940938" duration="11210000" />
+      <workItem from="1710838940938" duration="50027000" />
     </task>
     <servers />
   </component>

@@ -31,6 +31,7 @@ model User {
   updatedAt DateTime @updatedAt
   isDeleted Boolean  @default(false)
   Token     Token[]
+  Track     Track[]
 
   @@unique([email, isDeleted])
   @@map(name: "users")
@@ -43,4 +44,33 @@ model Token {
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map(name: "tokens")
+}
+
+model Track {
+  id                Int        @id @default(autoincrement())
+  title             String
+  private           Boolean    @default(false)
+  keywords          String[]
+  description       String?
+  hiddenDescription String?
+  createdAt         DateTime   @default(now())
+  updatedAt         DateTime   @updatedAt
+  isDeleted         Boolean    @default(false)
+  userId            Int
+  user              User       @relation(fields: [userId], references: [id])
+  file              TrackFile?
+
+  @@map(name: "tracks")
+}
+
+model TrackFile {
+  id       Int    @id @default(autoincrement())
+  filePath String
+  fileSize Int    @default(0)
+  mimetype String
+  duration Int
+  track    Track  @relation(fields: [trackId], references: [id])
+  trackId  Int    @unique
+
+  @@map(name: "tracks_files")
 }

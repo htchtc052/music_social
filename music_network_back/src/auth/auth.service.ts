@@ -7,7 +7,7 @@ import * as bcrypt from 'bcrypt';
 import TokenPayload from './types/token-payload';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
-import { UserResponse } from '../users/dto/response-user.dto';
+import { UserResponse } from '../users/dto/user-response.dto';
 import { LoginDto } from './dto/login.dto';
 import { PrismaService } from 'nestjs-prisma';
 

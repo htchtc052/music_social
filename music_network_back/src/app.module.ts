@@ -4,31 +4,21 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { JwtModule } from '@nestjs/jwt';
-import { ConfigModule, ConfigService } from '@nestjs/config';
-import * as Joi from 'joi';
 import { join } from 'path';
 import { PrismaModule } from 'nestjs-prisma';
 import { ServeStaticModule } from '@nestjs/serve-static';
-import { TrackModule } from './track/track.module';
+import { TracksModule } from './track/tracks.module';
+import { FilesModule } from './files.module';
+import { ConfigModule } from '../config.module';
+import { ConfigService } from '@nestjs/config';
 
 @Module({
   imports: [
     JwtModule.register({ global: true }),
+    FilesModule,
     UsersModule,
     AuthModule,
-    ConfigModule.forRoot({
-      envFilePath: process.env.NODE_ENV === 'test' ? '.env.test' : '.env',
-      isGlobal: true,
-      validationSchema: Joi.object({
-        DATABASE_URL: Joi.string().required(),
-        UPLOADS_DIR: Joi.string().required(),
-        JWT_SECRET: Joi.string().required(),
-      }),
-      validationOptions: {
-        allowUnknown: true,
-        abortEarly: false,
-      },
-    }),
+    ConfigModule,
     PrismaModule.forRoot({
       isGlobal: true,
     }),
@@ -44,7 +34,7 @@ import { TrackModule } from './track/track.module';
       },
       inject: [ConfigService],
     }),
-    TrackModule,
+    TracksModule,
   ],
   controllers: [AppController],
   providers: [AppService],

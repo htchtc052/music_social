@@ -5,7 +5,7 @@ import { User } from '@prisma/client';
 import * as bcrypt from 'bcrypt';
 import { RegisterDto } from '../auth/dto/register.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { UserResponse } from './dto/response-user.dto';
+import { UserResponse } from './dto/user-response.dto';
 
 describe('UsersService', () => {
   let usersService: UsersService;
@@ -62,19 +62,19 @@ describe('UsersService', () => {
         username: 'New user name',
       } as UpdateUserDto;
 
-      const editedUserMock: User = {
+      const updatedUserMock: User = {
         ...user,
         ...updateUserDto,
       } as User;
 
-      jest.spyOn(prisma.user, 'update').mockResolvedValue(editedUserMock);
+      jest.spyOn(prisma.user, 'update').mockResolvedValue(updatedUserMock);
 
-      const editedUserResponse: UserResponse = await usersService.update(
+      const updatedUserResponse: UserResponse = await usersService.update(
         user.id,
         updateUserDto,
       );
 
-      expect(editedUserResponse).toEqual(new UserResponse(editedUserMock));
+      expect(updatedUserResponse).toEqual(new UserResponse(updatedUserMock));
     });
 
     it('when the remove user method is called', async () => {
@@ -82,11 +82,9 @@ describe('UsersService', () => {
 
       jest.spyOn(prisma.user, 'update').mockResolvedValue(deletedUserMock);
 
-      const editedUserResponse: UserResponse = await usersService.remove(
-        user.id,
-      );
+      const deletedUserResponse = await usersService.remove(user.id);
 
-      expect(editedUserResponse).toEqual(new UserResponse(deletedUserMock));
+      expect(deletedUserResponse).toEqual(deletedUserMock);
     });
   });
 });
