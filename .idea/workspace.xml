@@ -5,36 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a5280e4-47b5-4977-9272-99d0e3a2f2c5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/music_network_back/config.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/music_network_back/src/files.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/music_network_back/src/track/dto/track-file-response.dto.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/music_network_back/src/track/dto/track-response.dto.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/music_network_back/src/track/exception/trackForbiddenException.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/music_network_back/src/track/exception/trackNotFoundException.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/music_network_back/src/track/track-public.controller.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/music_network_back/src/track/tracks-private.controller.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/music_network_back/src/track/tracks.service.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/music_network_back/src/track/tracks.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/music_network_back/src/users/pipe/user-by-id.pipe.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/music_network_back/src/users/user-profile.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/music_network_back/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/music_network_back/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/prisma/schema.prisma" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/music_network_back/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/src/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/music_network_back/src/auth/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/src/auth/auth.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/music_network_back/src/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/src/auth/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/music_network_back/src/auth/dto/response-auth.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/src/auth/dto/response-auth.dto.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/music_network_back/src/track/dto/update-track.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/src/track/dto/update-track.dto.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/music_network_back/src/track/track.controller.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/music_network_back/src/track/track.controller.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/music_network_back/src/track/track.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/src/track/tracks.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/music_network_back/src/track/track.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/music_network_back/src/track/track.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/music_network_back/src/users/dto/response-user.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/src/users/dto/user-response.dto.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/music_network_back/src/users/users.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/src/users/users.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/music_network_back/src/users/users.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/src/users/users.service.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/music_network_back/src/users/users.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/src/users/users.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/music_network_back/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music_network_back/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/music_network_back/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +72,7 @@
       <workItem from="1710599746131" duration="4573000" />
       <workItem from="1710605876207" duration="2308000" />
       <workItem from="1710614723669" duration="17975000" />
-      <workItem from="1710838940938" duration="50027000" />
+      <workItem from="1710838940938" duration="50419000" />
     </task>
     <servers />
   </component>
