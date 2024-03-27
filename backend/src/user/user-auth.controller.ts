@@ -19,12 +19,12 @@ import { UpdateUserDto } from './dto/update-user.dto';
 @UseGuards(AccessTokenGuard)
 @ApiBearerAuth()
 @Controller('user-account')
-export class UserAccountController {
-  constructor(private readonly usersService: UserService) {}
+export class UserAuthController {
+  constructor(private readonly userService: UserService) {}
 
   @Get('/')
   @HttpCode(HttpStatus.OK)
-  async getUser(@AuthUser() authUser: User): Promise<UserResponse> {
+  async getAuthUser(@AuthUser() authUser: User): Promise<UserResponse> {
     return new UserResponse(authUser);
   }
 
@@ -34,7 +34,7 @@ export class UserAccountController {
     @AuthUser() authUser: User,
     @Body() updateUserDto: UpdateUserDto,
   ): Promise<UserResponse> {
-    return this.usersService.update(+authUser.id, updateUserDto);
+    return this.userService.update(authUser, updateUserDto);
   }
   @Delete()
   @HttpCode(HttpStatus.OK)
@@ -43,7 +43,7 @@ export class UserAccountController {
     authUser: User,
   ): Promise<string> {
     console.debug(authUser);
-    const deletedUser: User = await this.usersService.remove(+authUser.id);
+    const deletedUser: User = await this.userService.remove(authUser);
     return `User ${deletedUser.id} successfully deleted`;
   }
 }

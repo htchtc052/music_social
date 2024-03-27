@@ -82,7 +82,7 @@ describe('UserService', () => {
 
       jest.spyOn(prisma.user, 'update').mockResolvedValue(deletedUserMock);
 
-      const deletedUserResponse = await userService.remove(user.id);
+      const deletedUserResponse = await userService.remove(user);
 
       expect(deletedUserResponse).toEqual(deletedUserMock);
     });

@@ -14,14 +14,14 @@ import { PrismaService } from 'nestjs-prisma';
 @Injectable()
 export class AuthService {
   constructor(
-    private usersService: UserService,
+    private userService: UserService,
     private jwtService: JwtService,
     private configService: ConfigService,
     private prisma: PrismaService,
   ) {}
 
   async register(registerDto: RegisterDto) {
-    const user: User = await this.usersService.create(registerDto);
+    const user: User = await this.userService.create(registerDto);
 
     const tokensResponse: TokensResponse = await this.createNewTokens(user.id);
 
@@ -32,7 +32,7 @@ export class AuthService {
   }
 
   async login(loginDto: LoginDto) {
-    const user: User = await this.usersService.findByEmail(loginDto.email);
+    const user: User = await this.userService.findByEmail(loginDto.email);
 
     const passwordIsValid = await this.validatePassword(
       loginDto.password,
@@ -64,11 +64,11 @@ export class AuthService {
     const [accessToken, refreshToken] = await Promise.all([
       this.jwtService.signAsync(jwtPayload, {
         secret: this.configService.get<string>('JWT_SECRET'),
-        expiresIn: '5m',
+        expiresIn: '10m',
       }),
       this.jwtService.signAsync(jwtPayload, {
         secret: this.configService.get<string>('JWT_SECRET'),
-        expiresIn: '10m',
+        expiresIn: '30m',
       }),
     ]);
 
@@ -88,7 +88,7 @@ export class AuthService {
 
     if (!tokenData) return null;
 
-    return this.usersService.findById(tokenData.userId);
+    return this.userService.findById(tokenData.userId);
   }
 
   async validatePassword(plainTextPassword: string, hashedPassword: string) {

@@ -11,7 +11,7 @@ import { RegisterDto } from './dto/register.dto';
 describe('AuthService', () => {
   let authService: AuthService;
 
-  const mockUsersService: UserService = jest.createMockFromModule(
+  const mockUserService: UserService = jest.createMockFromModule(
     '../users/user.service',
   );
 
@@ -21,7 +21,7 @@ describe('AuthService', () => {
         AuthService,
         {
           provide: UserService,
-          useValue: mockUsersService,
+          useValue: mockUserService,
         },
         {
           provide: JwtService,
@@ -68,7 +68,7 @@ describe('AuthService', () => {
 
     describe('when the register method is called', () => {
       beforeEach(async () => {
-        mockUsersService.create = jest
+        mockUserService.create = jest
           .fn()
           .mockImplementation((registerDto: RegisterDto) => {
             if (registerDto.email === user.email) {
@@ -105,7 +105,7 @@ describe('AuthService', () => {
     });
     describe('when the login method is called', () => {
       beforeEach(async () => {
-        mockUsersService.findByEmail = jest.fn().mockImplementation((email) => {
+        mockUserService.findByEmail = jest.fn().mockImplementation((email) => {
           return email === user.email ? user : undefined;
         });
         authService.validatePassword = jest

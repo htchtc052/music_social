@@ -7,7 +7,7 @@ import { TrackNotFoundException } from './exception/trackNotFoundException';
 import { PrismaErrors } from '../../prisma/prismaErrors';
 
 @Injectable()
-export class TracksService {
+export class TrackService {
   constructor(private prisma: PrismaService) {}
   async create(user: User, uploadedFile: Express.Multer.File) {
     const track: Track = await this.prisma.track.create({
@@ -38,26 +38,9 @@ export class TracksService {
     return track;
   }
 
-  async getTrack(id: number) {
-    const track = await this.prisma.track.findUnique({
-      where: { id, isDeleted: false },
-      include: {
-        file: true,
-      },
-    });
-
-    if (!track) {
-      throw new TrackNotFoundException(id);
-    }
-
-    return new TrackResponse(track);
-  }
-
-  async getUserTrack(id: number, userId: number) {}
-
-  async getUserTracks(userId: number, includePrivate: boolean = false) {
+  async getUserTracks(user: User, includePrivate: boolean = false) {
     const where: Prisma.TrackWhereInput = {
-      userId,
+      userId: user.id,
       isDeleted: false,
     };
 
@@ -75,10 +58,10 @@ export class TracksService {
     return tracks.map((track) => new TrackResponse(track));
   }
 
-  async update(id: number, userId: number, updateTrackDto: UpdateTrackDto) {
+  async update(track: Track, updateTrackDto: UpdateTrackDto) {
     try {
       const updatedTrack = await this.prisma.track.update({
-        where: { id, userId },
+        where: { id: track.id },
         data: updateTrackDto,
       });
 
@@ -88,18 +71,17 @@ export class TracksService {
         error instanceof Prisma.PrismaClientKnownRequestError &&
         error.code === PrismaErrors.RecordDoesNotExist
       ) {
-        throw new TrackNotFoundException(id);
+        throw new TrackNotFoundException(track.id);
       }
       throw new BadRequestException();
     }
   }
 
-  async remove(id: number, userId: number) {
+  async remove(track: Track) {
     try {
       const removedTrack: Track = await this.prisma.track.update({
         where: {
-          id,
-          userId,
+          id: track.id,
         },
         data: { isDeleted: true },
       });
@@ -109,7 +91,7 @@ export class TracksService {
         error instanceof Prisma.PrismaClientKnownRequestError &&
         error.code === PrismaErrors.RecordDoesNotExist
       ) {
-        throw new TrackNotFoundException(id);
+        throw new TrackNotFoundException(track.id);
       }
       throw new BadRequestException();
     }

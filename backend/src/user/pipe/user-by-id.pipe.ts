@@ -1,15 +1,11 @@
-import {
-  BadRequestException,
-  Injectable,
-  NotFoundException,
-  PipeTransform,
-} from '@nestjs/common';
+import { BadRequestException, Injectable, PipeTransform } from '@nestjs/common';
 import { UserService } from '../user.service';
 import { User } from '@prisma/client';
+import { UserNotFoundException } from '../exception/userNotFoundException';
 
 @Injectable()
 export class UserByIdPipe implements PipeTransform<string> {
-  constructor(private readonly usersService: UserService) {}
+  constructor(private readonly userService: UserService) {}
 
   async transform(value: string): Promise<User> {
     const userId = parseInt(value, 10); // Using parseIntPipe functionality
@@ -17,9 +13,9 @@ export class UserByIdPipe implements PipeTransform<string> {
       throw new BadRequestException('Invalid user ID');
     }
 
-    const user = await this.usersService.findById(userId);
+    const user = await this.userService.findById(userId);
     if (!user) {
-      throw new NotFoundException(userId);
+      throw new UserNotFoundException(userId);
     }
     return user;
   }

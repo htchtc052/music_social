@@ -6,6 +6,7 @@ import { PrismaService } from 'nestjs-prisma';
 import { Prisma, User } from '@prisma/client';
 import { PrismaErrors } from '../../prisma/prismaErrors';
 import { UserResponse } from './dto/user-response.dto';
+import { v4 as uuidv4 } from 'uuid';
 
 @Injectable()
 export class UserService {
@@ -47,10 +48,10 @@ export class UserService {
     });
   }
 
-  async update(userId: number, updateUserDto: UpdateUserDto) {
+  async update(user: User, updateUserDto: UpdateUserDto) {
     const updatedUser: User = await this.prisma.user.update({
       where: {
-        id: userId,
+        id: user.id,
       },
       data: updateUserDto,
     });
@@ -58,12 +59,12 @@ export class UserService {
     return new UserResponse(updatedUser);
   }
 
-  async remove(userId: number) {
+  async remove(user: User) {
     const removedUser: User = await this.prisma.user.update({
       where: {
-        id: userId,
+        id: user.id,
       },
-      data: { isDeleted: true },
+      data: { isDeleted: true, email: user.email + uuidv4() },
     });
     return removedUser;
   }

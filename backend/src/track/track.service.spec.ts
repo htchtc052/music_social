@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { TracksService } from './tracks.service';
+import { TrackService } from './track.service';
 import { PrismaService } from 'nestjs-prisma';
 import { Track, TrackFile, User } from '@prisma/client';
 import { TrackResponse } from './dto/track-response.dto';
@@ -8,7 +8,7 @@ import { NotFoundException } from '@nestjs/common';
 import { TrackNotFoundException } from './exception/trackNotFoundException';
 
 describe('TrackService', () => {
-  let tracksService: TracksService;
+  let trackService: TrackService;
 
   const prisma = {
     track: {
@@ -25,7 +25,7 @@ describe('TrackService', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
-        TracksService,
+        TrackService,
         {
           provide: PrismaService,
           useValue: prisma,
@@ -33,11 +33,11 @@ describe('TrackService', () => {
       ],
     }).compile();
 
-    tracksService = module.get<TracksService>(TracksService);
+    trackService = module.get<TrackService>(TrackService);
   });
 
   it('should be defined', () => {
-    expect(tracksService).toBeDefined();
+    expect(trackService).toBeDefined();
   });
 
   describe('tracks routes', () => {
@@ -81,7 +81,7 @@ describe('TrackService', () => {
 
       jest.spyOn(prisma.trackFile, 'create').mockResolvedValue(trackFile);
 
-      const createdTrack: TrackResponse = await tracksService.create(
+      const createdTrack: TrackResponse = await trackService.create(
         ownerUser,
         uploadedTrackFile,
       );
@@ -108,7 +108,7 @@ describe('TrackService', () => {
       const tracks = [track1, track2];
 
       beforeEach(async () => {
-        tracksService.getUserTrack = jest
+        trackService.getUserTrack = jest
           .fn()
           .mockImplementation(async (id: number, userId: number) => {
             return tracks.find(
@@ -116,13 +116,13 @@ describe('TrackService', () => {
             );
           });
 
-        tracksService.getUserTracks = jest
+        trackService.getUserTracks = jest
           .fn()
           .mockImplementation(async (userId: number) => {
             return tracks.filter((track) => track.userId === userId);
           });
 
-        tracksService.update = jest
+        trackService.update = jest
           .fn()
           .mockImplementation(
             async (
@@ -151,18 +151,9 @@ describe('TrackService', () => {
       describe('and access tracks by owner', () => {
         it('when the get tracks method is called', async () => {
           const tracksResponse: TrackResponse[] =
-            await tracksService.getUserTracks(ownerUser.id);
+            await trackService.getUserTracks(ownerUser.id);
 
           expect(tracksResponse).toEqual(tracks);
-        });
-
-        it('when the get track method is called', async () => {
-          const trackResponse: TrackResponse = await tracksService.getUserTrack(
-            track1.id,
-            ownerUser.id,
-          );
-
-          expect(trackResponse).toEqual(track1);
         });
 
         it('when the update track method is called', async () => {
@@ -170,12 +161,11 @@ describe('TrackService', () => {
             title: 'Edited title',
           } as UpdateTrackDto;
 
-          const updatedTrackResponse: TrackResponse =
-            await tracksService.update(
-              track1.id,
-              ownerUser.id,
-              updatedTrackDto,
-            );
+          const updatedTrackResponse: TrackResponse = await trackService.update(
+            track1.id,
+            ownerUser.id,
+            updatedTrackDto,
+          );
 
           expect(updatedTrackResponse).toEqual({
             ...track1,
@@ -187,14 +177,14 @@ describe('TrackService', () => {
       describe('and access tracks by guest', () => {
         it('when the get tracks method is called', async () => {
           const tracksResponse: TrackResponse[] =
-            await tracksService.getUserTracks(guestUser.id);
+            await trackService.getUserTracks(guestUser.id);
 
           expect(tracksResponse).toEqual([]);
         });
 
         it('when the get track method is called', async () => {
           return expect(async () => {
-            await tracksService.getTrackById(track1.id);
+            await trackService.getTrackById(track1.id);
           }).rejects.toThrow(NotFoundException);
         });
 
@@ -203,7 +193,7 @@ describe('TrackService', () => {
             title: 'Edited title',
           } as UpdateTrackDto;
           return expect(async () => {
-            await tracksService.update(track1.id, guestUser.id, updateTrackDto);
+            await trackService.update(track1.id, guestUser.id, updateTrackDto);
           }).rejects.toThrow(NotFoundException);
         });
       });

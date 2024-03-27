@@ -7,7 +7,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { join } from 'path';
 import { PrismaModule } from 'nestjs-prisma';
 import { ServeStaticModule } from '@nestjs/serve-static';
-import { TracksModule } from './track/tracks.module';
+import { TrackModule } from './track/track.module';
 import { FilesModule } from './files.module';
 import { ConfigModule } from '../config.module';
 import { ConfigService } from '@nestjs/config';
@@ -34,7 +34,7 @@ import { ConfigService } from '@nestjs/config';
       },
       inject: [ConfigService],
     }),
-    TracksModule,
+    TrackModule,
   ],
   controllers: [AppController],
   providers: [AppService],
